@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>👑 Admin Dashboard</h1>
+
+    <a class="logout" href="/logout">
+        Logout
+    </a>
+
+</div>
+
+<div class="main">
+
+    <h2 class="admin-title">
+        👥 ผู้ใช้งานทั้งหมด
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Username</th>
+
+            <th>Role</th>
+
+        </tr>
+
+        {{range .users}}
+
+        <tr>
+
+            <td>{{.ID}}</td>
+
+            <td>{{.Username}}</td>
+
+            <td>{{.Role}}</td>
+
+        </tr>
+
+        {{end}}
+
+    </table>
+
+    <br><br>
+
+    <h2 class="admin-title">
+        📚 งานทั้งหมด
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Title</th>
+
+            <th>Description</th>
+
+            <th>User ID</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        {{range .tasks}}
+
+        <tr>
+
+            <td>{{.ID}}</td>
+
+            <td>{{.Title}}</td>
+
+            <td>{{.Description}}</td>
+
+            <td>{{.UserID}}</td>
+
+            <td>
+
+                <a
+                    class="delete-btn"
+                    href="/admin/delete/{{.ID}}"
+                    onclick="return confirm('ยืนยันการลบงานนี้?')">
+
+                    🗑 Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {{end}}
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

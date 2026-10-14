@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Study Planner | Register</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="logo">🌸</div>
+
+        <div class="title">
+            Study Planner
+        </div>
+
+        <div class="subtitle">
+            สมัครสมาชิกเพื่อเริ่มวางแผนการเรียน
+        </div>
+
+        <form action="/register" method="POST">
+
+            <label>👤 Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="กรอกชื่อผู้ใช้"
+                required
+            >
+
+            <label>🔒 Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="กรอกรหัสผ่าน"
+                required
+            >
+
+            <label>🔑 Confirm Password</label>
+
+            <input
+                type="password"
+                name="confirm"
+                placeholder="ยืนยันรหัสผ่าน"
+                required
+            >
+
+            <button type="submit">
+                🌸 สมัครสมาชิก
+            </button>
+
+        </form>
+
+        <div class="link">
+
+            มีบัญชีแล้ว ?
+
+            <a href="/login">
+                เข้าสู่ระบบ
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

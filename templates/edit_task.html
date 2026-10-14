@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Study Planner | Edit Task</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="logo">
+            ✏️
+        </div>
+
+        <div class="title">
+            แก้ไขงาน
+        </div>
+
+        <div class="subtitle">
+            แก้ไขรายละเอียดงานของคุณ
+        </div>
+
+        <form action="/task/update/{{.task.ID}}" method="POST">
+
+            <label>
+                📖 หัวข้องาน
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                value="{{.task.Title}}"
+                required
+            >
+
+            <label>
+                📝 รายละเอียด
+            </label>
+
+            <textarea
+                name="description"
+                rows="5"
+                required>{{.task.Description}}</textarea>
+
+            <button type="submit">
+                💕 บันทึกการแก้ไข
+            </button>
+
+        </form>
+
+        <div class="link">
+
+            <a href="/dashboard">
+                ← กลับ Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

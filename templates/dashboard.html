@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Study Planner | Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🌸 Study Planner</h1>
+
+        <div>
+
+            👋 สวัสดี {{.username}}
+
+            &nbsp;&nbsp;
+
+            <a class="logout" href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="task-form">
+
+            <h2 style="color:#E75480;margin-bottom:20px;">
+                💕 เพิ่มงานใหม่
+            </h2>
+
+            <form action="/task/create" method="POST">
+
+                <label>หัวข้องาน</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="เช่น ทำรายงาน GO"
+                    required
+                >
+
+                <label>รายละเอียด</label>
+
+                <textarea
+                    name="description"
+                    rows="4"
+                    placeholder="รายละเอียดของงาน..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    ➕ เพิ่มงาน
+                </button>
+
+            </form>
+
+        </div>
+
+        <h2 style="color:#E75480;margin-bottom:20px;">
+            📚 งานของฉัน
+        </h2>
+
+        {{range .tasks}}
+
+        <div class="task-card">
+
+            <h3>
+                📖 {{.Title}}
+            </h3>
+
+            <p style="margin-top:10px;color:#666;">
+                {{.Description}}
+            </p>
+
+            <div class="action">
+
+                <a
+                    class="edit-btn"
+                    href="/task/edit/{{.ID}}">
+                    ✏ แก้ไข
+                </a>
+
+                <a
+                    class="delete-btn"
+                    href="/task/delete/{{.ID}}"
+                    onclick="return confirm('ลบงานนี้ใช่หรือไม่?')">
+                    🗑 ลบ
+                </a>
+
+            </div>
+
+        </div>
+
+        {{end}}
+
+    </div>
+
+</body>
+
+</html>
